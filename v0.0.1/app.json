@@ -1,0 +1,22 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/settings/settings",
+    "pages/addsource/addsource",
+    "pages/addtask/addtask",
+    "pages/editsource/editsource",
+    "pages/edittask/edittask",
+    "pages/choosetask/choosetask",
+    "pages/taskstatus/taskstatus",
+    "pages/mytask/mytask",
+    "pages/addthumbnail/addthumbnail",
+    "pages/stats/stats"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",  
+    "navigationBarBackgroundColor": "#f3f5f8",
+    "navigationBarTitleText": "任务清单",
+    "navigationBarTextStyle":"black"
+  }
+}
+
