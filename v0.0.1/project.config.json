@@ -23,7 +23,7 @@
 		"hidedInDevtools": []
 	},
 	"qqappid": "1110873359",
-	"projectname": "yakiniku-release",
+	"projectname": "yakiniku-test",
 	"cloudfunctionRoot": "cloudfunctions/",
 	"scripts": {
 		"beforeCompile": "",

@@ -17,6 +17,7 @@ Page({
     canIUse: qq.canIUse('button.open-type.getUserInfo'),
     buttonText: "测试按钮",
     groupList: [],
+    firstUseConsentPage: false,
     addGroup: false,
     currentPassword: '',
     groupEntered: false,
@@ -38,6 +39,11 @@ Page({
   bindTestButton: function () {
     this.setData({
       buttonText: "修改成功"
+    })
+  },
+  bindFirstUse: function () {
+    this.setData({
+      firstUseConsentPage: false
     })
   },
   bindSettings: function () {
@@ -91,6 +97,10 @@ Page({
     })
   },
   onLoad: function () {
+    qq.showShareMenu({
+      showShareItems: ['qq']
+    })
+    
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -121,6 +131,11 @@ Page({
     if (_groupList) {
       this.setData({
         groupList: JSON.parse(_groupList)
+      })
+    }
+    else{
+      this.setData({
+        firstUseConsentPage: true
       })
     }   
   },
@@ -161,11 +176,27 @@ Page({
           this.setData({
             groupList: _list
           })
+          qq.showToast({
+            title: '添加成功',
+            icon: 'success',
+            duration: 2000
+          }) 
         }
         else {
-          console.log('repeated character!')
+          qq.showToast({
+            title: '无需重复添加',
+            icon: 'none',
+            duration: 2000
+          }) 
         }
         qq.setStorageSync('groups', JSON.stringify(this.data.groupList))
+      }
+      else {
+        qq.showToast({
+          title: '密码错误',
+          icon: 'none',
+          duration: 2000
+        }) 
       }
       this.setData({
         addGroup: false
